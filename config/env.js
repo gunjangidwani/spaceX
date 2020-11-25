@@ -14,7 +14,9 @@ function getAppEnv() {
     {
       NODE_ENV: process.env.NODE_ENV,
       PUBLIC_URL: process.env.PUBLIC_URL,
-      VERSION: process.env.VERSION
+      VERSION: process.env.VERSION,
+      HOST: process.env.HOST || '0.0.0.0',
+      PORT: process.env.PORT || 3333
     }
   );
 
