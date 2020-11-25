@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 process.env.NODE_ENV = 'production';
-process.env.PUBLIC_URL =
-  process.env.PUBLIC_URL || 'https://gunjanspacex.herokuapp.com' || '';
+process.env.PUBLIC_URL = process.env.PUBLIC_URL || '';
 
 const cluster = require('cluster');
 
