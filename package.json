@@ -14,8 +14,7 @@
     "format": "prettier --write \"src/**/*.{js,json,css,md}\"",
     "docker:build": "docker build --rm -t cullenjett/react-ssr-spacex .",
     "docker:start": "docker run --rm -it -p 3000:3000 cullenjett/react-ssr-spacex",
-    "docker": "npm run docker:build && npm run docker:start",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "docker": "npm run docker:build && npm run docker:start"
   },
   "husky": {
     "hooks": {
