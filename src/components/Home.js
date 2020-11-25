@@ -47,10 +47,10 @@ const Home = () => {
   return (
     <div className="container">
       <h1>SpaceX Launch Programs</h1>
-      {programs.length > 0 ? <div className="programs">
+      <div className="programs">
         <Filter applyFilter={applyFilter} launchYear={launchYear} successfulLanding={successfulLanding} successfulLaunch={successfulLaunch} />
         <Flight programs={programs} />
-      </div> : <span>Loading ...</span>}
+      </div>
       <div className="footer">
         <h5>Developed by: Gunjan Gidwani </h5>
       </div>
