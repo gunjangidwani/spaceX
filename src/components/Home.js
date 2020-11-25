@@ -28,10 +28,16 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const filterParameter = `&launch_success=${successfulLaunch}&land_success=${successfulLanding}&launch_year=${launchYear}`
-    api.spacesX.applyFilter(filterParameter).then(res => {
-      setPrograms(res);
-    });
+    if(launchYear || successfulLaunch || successfulLanding) {
+      const filterParameter = `&launch_success=${successfulLaunch}&land_success=${successfulLanding}&launch_year=${launchYear}`
+      api.spacesX.applyFilter(filterParameter).then(res => {
+        setPrograms(res);
+      });
+    } else {
+      api.spacesX.applyFilter('/').then(res => {
+        setPrograms(res);
+      });
+    }
   }, [successfulLaunch, successfulLanding, launchYear]);
 
   const applyFilter = (filterType, value) => {
@@ -45,6 +51,9 @@ const Home = () => {
         <Filter applyFilter={applyFilter} launchYear={launchYear} successfulLanding={successfulLanding} successfulLaunch={successfulLaunch} />
         <Flight programs={programs} />
       </div> : <span>Loading ...</span>}
+      <div className="footer">
+        <h5>Developed by: Gunjan Gidwani </h5>
+      </div>
     </div>
   );
 };
