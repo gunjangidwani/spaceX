@@ -4,10 +4,9 @@ import asyncComponent from './AsyncComponent';
 
 import Head from './Head';
 
-
-const LoadableHome = asyncComponent(() => 
+const LoadableHome = asyncComponent(() =>
   import('./Home').then(module => module.default)
-)
+);
 
 const App = () => (
   <div className="app">

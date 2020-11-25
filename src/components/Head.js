@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 const Head = () => {
   return (
     <Helmet>
-      <title>React SSR Boilerplate</title>
+      <title>React SSR Spacex</title>
 
       <meta charSet="UTF-8" />
       <meta
@@ -14,12 +14,12 @@ const Head = () => {
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta
         name="description"
-        content="Boilerplate for React apps with routing & server side rendering"
+        content="React apps with routing and server side rendering"
       />
 
       <link
         rel="shortcut icon"
-        href={`${process.env.PUBLIC_URL}/favicon.ico?v1`}
+        href={`${process.env.PUBLIC_URL}/favicon.ico?v2`}
       />
     </Helmet>
   );

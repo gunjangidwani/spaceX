@@ -5,7 +5,6 @@ import Filter from './filter/Filter';
 import Flight from './flight/Flight';
 
 const Home = () => {
-  
   const [programs, setPrograms] = useState([]);
   const [launchYear, setLaunchYear] = useState('');
   const [successfulLanding, setSuccessfulLanding] = useState('');
@@ -25,11 +24,11 @@ const Home = () => {
       default:
         break;
     }
-  }
+  };
 
   useEffect(() => {
-    if(launchYear || successfulLaunch || successfulLanding) {
-      const filterParameter = `&launch_success=${successfulLaunch}&land_success=${successfulLanding}&launch_year=${launchYear}`
+    if (launchYear || successfulLaunch || successfulLanding) {
+      const filterParameter = `&launch_success=${successfulLaunch}&land_success=${successfulLanding}&launch_year=${launchYear}`;
       api.spacesX.applyFilter(filterParameter).then(res => {
         setPrograms(res);
       });
@@ -42,13 +41,18 @@ const Home = () => {
 
   const applyFilter = (filterType, value) => {
     updateFilterType(filterType, value);
-  }
+  };
 
   return (
     <div className="container">
       <h1>SpaceX Launch Programs</h1>
       <div className="programs">
-        <Filter applyFilter={applyFilter} launchYear={launchYear} successfulLanding={successfulLanding} successfulLaunch={successfulLaunch} />
+        <Filter
+          applyFilter={applyFilter}
+          launchYear={launchYear}
+          successfulLanding={successfulLanding}
+          successfulLaunch={successfulLaunch}
+        />
         <Flight programs={programs} />
       </div>
       <div className="footer">

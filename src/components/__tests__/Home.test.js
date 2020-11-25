@@ -6,7 +6,7 @@ import { ServerDataProvider } from '../../state/serverDataContext';
 
 describe('<Home />', () => {
   const { container } = render(
-    <ServerDataProvider  launchYear="2020">
+    <ServerDataProvider launchYear="2020">
       <Home />
     </ServerDataProvider>
   );
