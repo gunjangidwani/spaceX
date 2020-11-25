@@ -1,8 +1,7 @@
 export function Api(http) {
   return {
-    applyFilter : (filters) => {
-      console.log(filters)
+    applyFilter: filters => {
       return http.get(filters);
-    },
+    }
   };
 }

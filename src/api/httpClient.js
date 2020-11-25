@@ -7,7 +7,6 @@ export function httpClient(baseURL) {
         if (!res.ok) {
           throw new Error(res.statusText);
         }
-        console.log(res, "res")
         return res.json();
       });
     },
