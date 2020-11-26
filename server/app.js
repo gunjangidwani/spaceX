@@ -28,7 +28,7 @@ app.use(
 // Serve static assets in /public
 app.use(
   PUBLIC_URL,
-  express.static(path.resolve(__dirname, '../public'), {
+  express.static(path.resolve(__dirname, '../public/'), {
     maxage: 0
   })
 );
