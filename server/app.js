@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(
   PUBLIC_URL,
   express.static(path.resolve(__dirname, '../build'), {
-    maxage: Infinity
+    maxage: 0
   })
 );
 
@@ -29,12 +29,11 @@ app.use(
 app.use(
   PUBLIC_URL,
   express.static(path.resolve(__dirname, '../public'), {
-    maxage: '30 days'
+    maxage: 0
   })
 );
 
 app.use(morgan('tiny'));
-
 
 app.use(
   responseTime((_req, res, time) => {
