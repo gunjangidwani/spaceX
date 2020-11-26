@@ -29,7 +29,7 @@ const prefetchStyleLinks = bundles => {
   return assetFilePaths
     .map(
       cssFilePath =>
-        `<link rel="prefetch" as="style" type="text/css" href="${cssFilePath}">`
+        `<link rel="stylesheet" type="text/css" href="${cssFilePath}">`
     )
     .join('');
 };
@@ -61,7 +61,7 @@ const preloadScripts = bundles => {
   return [...bundleFilePaths, mainJS]
     .map(
       jsFilePath =>
-        `<link rel="preload" as="script" type="text/javascript" href="${jsFilePath}">`
+        `<link rel="javascript" type="text/javascript" href="${jsFilePath}">`
     )
     .join('');
 };
