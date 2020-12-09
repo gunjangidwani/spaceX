@@ -8,8 +8,6 @@ The app is bootstrapped using create-next-app. So all next.js commands are avail
 
 ```npm run start``` to build production and serve
 
-```npm run lint``` to run eslint
-
 
 ## Stack details
 

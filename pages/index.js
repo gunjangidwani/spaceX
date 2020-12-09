@@ -1,81 +1,80 @@
-import Head from 'next/head';
-import styled from 'styled-components';
-import api from '../api';
-import CreateForm from '../components/CreateForm';
-import Link from "next/link";
-import Test from './takeTest';
+import React, { useState, useEffect } from 'react';
 
-export default function Home({ launches }) {
+import { api } from './api';
+import Filter from '../components/filter/Filter.js';
+import Flight from '../components/flight/Flight.js';
+
+const App = () => {
+  const [programs, setPrograms] = useState([]);
+  const [launchYear, setLaunchYear] = useState('');
+  const [successfulLanding, setSuccessfulLanding] = useState('');
+  const [successfulLaunch, setSuccessfulLaunch] = useState('');
+  const [loader, setLoader] = useState(false);
+
+  const updateFilterType = (filterType, value) => {
+    switch (filterType) {
+      case 'launch_year':
+        setLaunchYear(value);
+        break;
+      case 'launch_success':
+        setSuccessfulLaunch(value);
+        break;
+      case 'land_success':
+        setSuccessfulLanding(value);
+        break;
+      case 'remove_all':
+        setLaunchYear('');
+        setSuccessfulLaunch('');
+        setSuccessfulLanding('');
+        break;
+      default:
+        break;
+    }
+  };
+
+  const url = () => {
+    const launch_success = successfulLaunch !== '' ? `&launch_success=${successfulLaunch}` : '';
+    const land_success = successfulLanding !== '' ? `&land_success=${successfulLanding}` : '';
+    const launch_year = launchYear !== '' ? `&launch_year=${launchYear}` : '';
+    return`${launch_success}${land_success}${launch_year}`;
+  }
+
+  useEffect(() => {
+    if (launchYear || successfulLaunch || successfulLanding) {
+      setLoader(true);
+      api.spacesX.applyFilter(url()).then(res => {
+      setLoader(false);
+        setPrograms(res);
+        window.history.replaceState(null, null, url());
+      });
+    } else {
+      setLoader(true);
+      api.spacesX.applyFilter('/').then(res => {
+      setLoader(false);
+        setPrograms(res);
+        window.history.pushState({}, document.title, "/" );
+      });
+    }
+  }, [successfulLaunch, successfulLanding, launchYear]);
+
+  const applyFilter = (filterType, value) => {
+    updateFilterType(filterType, value);
+  };
+
   return (
-    <div>
-      <Head>
-        <title>Formative Assessment</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <nav>
-        <Link href="/">
-          <a>Prepare</a>
-        </Link>
-        <Link href="/takeTest">
-          <a>Test</a>
-        </Link>
-      </nav>
-      <main>
-        <h2 style={{ padding: '10px' }}>Create Formative Assessment</h2>
-        <AppContainer>
-          <CreateForm />
-        </AppContainer>
-      </main>
+    <div className="SpaceXWrapper">
+      <div className="SpaceXContainter">
+        <h1>SpaceX Launch Programs</h1>
+          <Filter
+            applyFilter={applyFilter}
+            launchYear={launchYear}
+            successfulLanding={successfulLanding}
+            successfulLaunch={successfulLaunch}
+          />
+          {loader === true ? <div className="reset"> loading... </div> : <Flight programs={programs} />}
+      </div>
     </div>
   );
-}
+};
 
-export async function getServerSideProps(context) {
-  const { launch_year, launch_success, land_success } = context.query;
-  const res = await api.getLaunchData(
-    launch_year,
-    launch_success,
-    land_success
-  );
-  return { props: { launches: res } };
-}
-
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 700px) {
-    flex-direction: row;
-  }
-`;
-
-
-const CardContainer = styled.div`
-  text-align: center;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
-  max-width: 900px;
-  .card-wrapper {
-    width: 100%;
-    margin: 0 20px;
-  }
-
-  @media (min-width: 700px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    .card-wrapper {
-      width: 40%;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .card-wrapper {
-      width: 20%;
-      margin: 0 10px;
-    }
-  }
-`;
+export default App;

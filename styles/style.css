@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+.SpaceXWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: block;
+}
+
+.SpaceXContainter {
+  background: #f2f2f2;
+  width: 100%;
+  float: left;
+  padding: 5px 10px;
+}
+
+.sidebar {
+  width: 15%;
+  float: left;
+  padding: 5px 10px;
+  background: #fff;
+}
+
+.sidebar h3 {
+  margin: 0px 0px 5px;
+}
+
+.launch span {
+  margin: 10px auto;
+  border: 0px;
+  border-bottom: 2px solid #80808080;
+  padding-bottom: 3px;
+  outline: none;
+  display: block;
+  width: 100%;
+  max-width: 120px;
+  text-align: center;
+}
+
+.launch ul {
+  padding-left: 0px;
+  display: block;
+  max-width: 170px;
+  margin: 0 auto;
+}
+
+.launch ul li {
+  list-style: none;
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.launch ul li:nth-child(2n) {
+  text-align: right;
+}
+
+.launchbutton button:nth-child(2),
+.landbutton button:nth-child(2) {
+  float: right;
+  margin-right: 5px;
+}
+.reset {
+  margin: 10px auto 10px;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  width: 30%;
+  border-radius: 16px;
+}
+.spaceXGallery {
+  width: calc(85% - 20px);
+  float: left;
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.developer{
+    width:100%;
+    text-align: center;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+}
+.spaceXGallery .card .missionName {
+  color: #1d1dbd;
+  display: block;
+  margin:10px 0px 0px;
+}
+.showData{
+    min-height: 500px;
+    width:100%;
+    text-align: center;
+}
+.spaceXGallery .card span {
+  color: #1d1dbd;
+}
+
+.spaceXGallery .card {
+  font-size: 14px;
+  font-weight: bold;
+}
+.sidebar button:hover,.sidebar button:active,
+.sidebar button.active  {
+    opacity: 1;
+    cursor: pointer;
+    background: #066623;
+    color: white;
+}
+.spaceXGallery .card {
+  width: calc(25% - 10px);
+  background: #fff;
+  padding: 15px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar button:empty {
+  padding: 0;
+}
+
+.card .thumbnail {
+  background: #f2f2f2;
+}
+
+.card .thumbnail img {
+  margin: 0 auto;
+  display: block;
+  max-width:150px;
+  width:100%;
+}
+.sidebar button {
+  background: #4ebe4e;
+  border: 0px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+
+.filter{
+  font-weight: bold;
+}
+* {
+  font-family: arial;
+}
+@media (max-width: 1024px) {
+.sidebar{
+    width: 30%;
+}
+.spaceXGallery{
+        width: calc(70% - 20px);
+}
+.spaceXGallery .card{
+width: calc(50% - 10px);
+}
+}
+@media (max-width: 700px) {
+  .spaceXGallery .card,
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .launch ul {
+    max-width: unset;
+  }
+
+  .launch input[type="text"],
+  .land input[type="text"] {
+    max-width: 70%;
+  }
+
+  .spaceXGallery {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .sidebar,.spaceXGallery {
+    padding: 43px 25px;
+    max-width: 480px;
+    margin: 0 auto 30px;
+    display: block;
+    float: none;
+}
+.spaceXGallery{
+    padding:10px 0px;
+}
+.sidebar button{
+    width:100px;
+    height: 30px;
+    font-size: 16px;
+}
+.SpaceXContainter h1{
+    text-align:center;
+}
+.sidebar button{
+    width:100px;
+    height: 30px;  
+}
+.sidebar button,.sidebar input{
+  font-size: 16px;
+}
+}

@@ -6,17 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint --fix --ext .js"
+    "lint": "npx eslint --fix --ext .js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "jspdf": "^2.1.1",
     "next": "10.0.3",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
+    "babel-jest": "^26.6.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-nextjs": "^1.0.6",
@@ -27,6 +38,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.4.0",
+    "jest": "^26.6.3",
     "prettier": "^1.16.4"
   }
 }
